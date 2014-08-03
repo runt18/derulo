@@ -1,6 +1,6 @@
 {
   "name": "derulo",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Jason",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "colors": "^0.6.2",
+    "detect-indent": "^0.2.0",
     "docopt": "^0.4.0",
     "fuzzy": "^0.1.0",
     "yaml": "^0.2.3"

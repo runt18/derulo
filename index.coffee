@@ -6,10 +6,11 @@ fs = require 'fs'
 require 'colors'
 yaml = require 'yaml'
 fuzzy = require 'fuzzy'
+detect_indent = require 'detect-indent'
 {docopt} = require 'docopt'
 {exit} = process
 
-version = '0.0.4'
+version = '0.0.5'
 
 doc = """
 JSON Derulo.
@@ -38,6 +39,7 @@ banner = """
 \\==============================================/
 """.yellow
 
+indent = null
 
 # Show an error message and terminate the program.
 fatal = (message) ->
@@ -54,6 +56,7 @@ read = (f) -> fs.readFileSync(f, 'utf-8')
 readJSON = (f) ->
   f = normalise(f)
   contents = read(f)
+  indent = detect_indent(contents) or 2
 
   try
     return JSON.parse(contents)
@@ -62,7 +65,7 @@ readJSON = (f) ->
 
 # Write an object to a JSON file.
 writeJSON = (f, o) ->
-  fs.writeFileSync(normalise(f), pretty(o))
+  fs.writeFileSync(normalise(f), pretty(o, indent))
 
 # Pretty-print an object.
 pretty = (o, indent=2) -> JSON.stringify(o, null, indent)
