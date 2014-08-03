@@ -1,5 +1,7 @@
 # JSON Derulo
 
+[![Build Status](https://travis-ci.org/lavelle/derulo.svg?branch=master)](https://travis-ci.org/lavelle/derulo)
+
 > Derulo is a tool for building and manipulating JSON files.
 
 Hand editing JSON kinda sucks. You have to go around quoting stuff and if you forget a comma or a colon everything breaks. Derulo offers a fast way of creating and editing JSON files.
