@@ -9,27 +9,13 @@ fuzzy = require 'fuzzy'
 {docopt} = require 'docopt'
 {exit} = process
 
-{fatal, pretty, normalise, readJSON, writeJSON, valueise} = require './util'
+{fatal, pretty, normalise, read, readJSON, writeJSON, valueise} = require './util'
 repl = require './repl'
 
 version = '0.0.10'
 
 # Usage instructions used to build the option parser.
-doc = """
-JSON Derulo.
-
-Usage:
-  derulo [-y] <filename> [(<key> <value>)...]
-  derulo -d [-y] <filename> <key>...
-  derulo -h | --help
-  derulo -v | --version
-
-Options:
-  -h --help      Show this screen.
-  -v --version   Show version.
-  -d --delete    Delete keys instead of adding them.
-  -y --yaml      Operate on YAML files instead of JSON.
-"""
+doc = read 'help.txt'
 
 # Parse the options into a configuration object.
 opts = docopt(doc, version: version)

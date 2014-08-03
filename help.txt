@@ -1,0 +1,13 @@
+JSON Derulo.
+
+Usage:
+  derulo [-y] <filename> [(<key> <value>)...]
+  derulo -d [-y] <filename> <key>...
+  derulo -h | --help
+  derulo -v | --version
+
+Options:
+  -h --help      Show this screen.
+  -v --version   Show version.
+  -d --delete    Delete keys instead of adding them.
+  -y --yaml      Operate on YAML files instead of JSON.

@@ -8,17 +8,21 @@
 
 ![Derulo Logo](https://raw.githubusercontent.com/lavelle/derulo/master/image/trumpet.png)
 
+# Why
+
 Hand editing JSON kinda sucks. You have to go around quoting stuff and if you forget a comma or a colon everything breaks. Derulo offers a fast way of creating and editing JSON files.
 
 ## Install
 
 Get Node.js then run `npm i -g derulo`.
 
-## Usage
+## Usage examples
+
+For full usage instructions, see the [help text](help.txt).
 
 ### Interactive
 
-`derulo package` will open up a REPL where you can add multiple key-value pairs to be written to a file.
+`derulo <filename>` will open up a REPL where you can add multiple key-value pairs to be written to the file.
 
 ### Adding and editing
 
@@ -29,6 +33,23 @@ If the value is a number, boolean or `null`, it will be parsed as such. Everythi
 ### Deleting
 
 `derulo -d package name` will remove the `name` property from the file `package.json`. If no such key exists, nothing will happen.
+
+### Fuzzy matching
+
+If you omit the extension from the filename, `.json` will be appended automatically (or `.yml` for YAML if the `-y` flag is passed). If this doesn't match either, a fuzzy search will be performed, finding the closest matching file. Therefore, `pack`, `package` and `package.json` are equivalent when running in this repository.
+
+### Indentation
+
+Derulo will attempt to auto-detect and preserve indentation on files. If this fails, it will fall back to 2-space indentation.
+
+## Planned features
+
+- Support for nested structures - arrays and objects.
+- Support for editing YAML too.
+
+## Contributing
+
+New features and bug reports/fixes are very welcome. Try and be consistent with existing style and all that.
 
 ## License
 

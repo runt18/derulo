@@ -42,4 +42,4 @@ valueise = (value) ->
   catch exception
     return value
 
-module.exports = {fatal, pretty, normalise, readJSON, writeJSON, valueise}
+module.exports = {fatal, pretty, normalise, read, readJSON, writeJSON, valueise}
