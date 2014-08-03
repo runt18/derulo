@@ -3,6 +3,7 @@
 require 'colors'
 
 fs = require 'fs'
+path = require 'path'
 yaml = require 'yaml'
 fuzzy = require 'fuzzy'
 
@@ -12,10 +13,12 @@ fuzzy = require 'fuzzy'
 {fatal, pretty, normalise, read, readJSON, writeJSON, valueise} = require './util'
 repl = require './repl'
 
-version = '0.0.12'
+version = '0.0.13'
+
+console.log
 
 # Usage instructions used to build the option parser.
-doc = read 'help.txt'
+doc = read path.resolve(__dirname, '../help.txt')
 
 # Parse the options into a configuration object.
 opts = docopt(doc, version: version)
