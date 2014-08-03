@@ -2,32 +2,37 @@
 
 'use strict'
 
-fs = require 'fs'
 require 'colors'
+
+fs = require 'fs'
 yaml = require 'yaml'
 fuzzy = require 'fuzzy'
-detect_indent = require 'detect-indent'
+
 {docopt} = require 'docopt'
 {exit} = process
+{fatal, pretty, normalise, readJSON, writeJSON, valueise} = require './util'
 
-version = '0.0.5'
+version = '0.0.7'
 
 doc = """
 JSON Derulo.
 
 Usage:
-  derulo <filename> (<key> <value>)...
-  derulo -d <filename> <key>...
+  derulo [-y] <filename> (<key> <value>)...
+  derulo -d [-y] <filename> <key>...
   derulo -h | --help
   derulo -v | --version
 
 Options:
   -h --help      Show this screen.
   -v --version   Show version.
-  -d --delete    Delete keys instead of adding them
+  -d --delete    Delete keys instead of adding them.
+  -y --yaml      Operate on YAML files instead of JSON.
 """
 
 opts = docopt(doc, version: version)
+
+console.log opts
 
 banner = """
 /==============================================\\
@@ -39,48 +44,20 @@ banner = """
 \\==============================================/
 """.yellow
 
-indent = null
+modes =
+  JSON: 1
+  YAML: 2
 
-# Show an error message and terminate the program.
-fatal = (message) ->
-  console.error(message.red)
-  exit(1)
-
-# Add the .json extension to filenames that don't have it.
-normalise = (f) -> if '.' in f then f else "#{f}.json"
-
-# Read the contents of a text file to a string.
-read = (f) -> fs.readFileSync(f, 'utf-8')
-
-# Read the contents of a JSON text file to an object.
-readJSON = (f) ->
-  f = normalise(f)
-  contents = read(f)
-  indent = detect_indent(contents) or 2
-
-  try
-    return JSON.parse(contents)
-  catch e
-    fatal "Invalid JSON in file #{f}"
-
-# Write an object to a JSON file.
-writeJSON = (f, o) ->
-  fs.writeFileSync(normalise(f), pretty(o, indent))
-
-# Pretty-print an object.
-pretty = (o, indent=2) -> JSON.stringify(o, null, indent)
-
-# Convert strings to values like 'true' -> true and '1' -> 1.
-valueise = (v) ->
-  try
-    v = JSON.parse(v)
-  catch e
-
-  return v
+if opts['--yaml']
+  extension = '.yml'
+  mode = modes.YAML
+else
+  extension = '.json'
+  mode = modes.JSON
 
 filename = opts['<filename>']
 
-if fs.existsSync(normalise(filename))
+if fs.existsSync(normalise(filename, extension))
   object = readJSON(filename)
 else
   files = fs.readdirSync('.')

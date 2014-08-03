@@ -1,10 +1,11 @@
 {
   "name": "derulo",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Jason",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test",
+    "prepublish": "make compile"
   },
   "author": "Giles Lavelle",
   "license": "MIT",
@@ -18,5 +19,12 @@
   "devDependencies": {
     "coffee-script": "^1.7.1",
     "mocha": "^1.21.3"
+  },
+  "bin": {
+    "derulo": "lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lavelle/derulo.git"
   }
 }
