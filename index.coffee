@@ -5,6 +5,7 @@
 fs = require 'fs'
 require 'colors'
 yaml = require 'yaml'
+fuzzy = require 'fuzzy'
 {docopt} = require 'docopt'
 {exit} = process
 
@@ -76,11 +77,18 @@ valueise = (v) ->
 
 filename = opts['<filename>']
 
-if fs.existsSync(valueise(filename))
+if fs.existsSync(normalise(filename))
   object = readJSON(filename)
 else
-  object = {}
-  writeJSON(filename, object)
+  files = fs.readdirSync('.')
+  matches = fuzzy.filter(filename, files)
+
+  if matches.length > 0
+    filename = matches[0].string
+    object = readJSON(filename)
+  else
+    object = {}
+    writeJSON(filename, object)
 
 add = ->
   keys = opts['<key>']
