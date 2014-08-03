@@ -8,7 +8,9 @@ fuzzy = require 'fuzzy'
 
 {docopt} = require 'docopt'
 {exit} = process
+
 {fatal, pretty, normalise, readJSON, writeJSON, valueise} = require './util'
+repl = require './repl'
 
 version = '0.0.9'
 
@@ -16,7 +18,7 @@ doc = """
 JSON Derulo.
 
 Usage:
-  derulo [-y] <filename> (<key> <value>)...
+  derulo [-y] <filename> [(<key> <value>)...]
   derulo -d [-y] <filename> <key>...
   derulo -h | --help
   derulo -v | --version
@@ -30,7 +32,7 @@ Options:
 
 opts = docopt(doc, version: version)
 
-console.log opts
+# console.log opts
 
 banner = """
 /==============================================\\
@@ -73,7 +75,7 @@ add = ->
   values = opts['<value>']
 
   for i in [0...keys.length]
-    object[keys[i]] = values[i]
+    object[keys[i]] = valueise(values[i])
 
 remove = ->
   keys = opts['<key>']
@@ -90,10 +92,18 @@ main = ->
     console.log doc
     return
 
+  if opts['<key>'].length is 0
+    repl(normalise(opts['<filename>']))
+    return
+
   if opts['--delete']
     remove()
   else
     add()
+
   writeJSON(filename, object)
 
-module.exports = main
+if require.main is module
+  main()
+else
+  module.exports = main

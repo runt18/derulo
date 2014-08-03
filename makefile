@@ -13,3 +13,6 @@ compile:
 
 clean:
 	rm -rf lib
+
+run:
+	$(BIN)/coffee src/index.coffee

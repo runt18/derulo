@@ -1,5 +1,6 @@
 fs = require 'fs'
 detect_indent = require 'detect-indent'
+{exit} = process
 
 default_indent = 2
 indent = null
