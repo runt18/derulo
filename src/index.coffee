@@ -1,5 +1,3 @@
-#! /usr/bin/env coffee
-
 'use strict'
 
 require 'colors'
@@ -12,7 +10,7 @@ fuzzy = require 'fuzzy'
 {exit} = process
 {fatal, pretty, normalise, readJSON, writeJSON, valueise} = require './util'
 
-version = '0.0.7'
+version = '0.0.8'
 
 doc = """
 JSON Derulo.
@@ -96,6 +94,6 @@ main = ->
     remove()
   else
     add()
+  writeJSON(filename, object)
 
-main()
-writeJSON(filename, object)
+module.exports = main
