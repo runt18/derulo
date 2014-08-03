@@ -10,7 +10,7 @@ fuzzy = require 'fuzzy'
 {exit} = process
 {fatal, pretty, normalise, readJSON, writeJSON, valueise} = require './util'
 
-version = '0.0.8'
+version = '0.0.9'
 
 doc = """
 JSON Derulo.

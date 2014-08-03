@@ -1,6 +1,6 @@
 {
   "name": "derulo",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Jason",
   "main": "./main.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "yaml": "^0.2.3"
   },
   "devDependencies": {
+    "chai": "^1.9.1",
     "coffee-script": "^1.7.1",
     "mocha": "^1.21.3"
   },
