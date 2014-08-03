@@ -18,22 +18,33 @@ filename = null
 # Recursive function that implements the read loop.
 read_loop = ->
   prompt.get schema,  (err, result) ->
-    {key, value} = result
-
-    if 'end' in [key, value]
+    if err
       finish()
-    else
-      object[key] = valueise(value)
-      read_loop()
+      return
+
+    {key, value} = result
+    object[key] = valueise(value)
+    read_loop()
 
 # Writes the file when the REPL has finished.
 finish = ->
   console.log "Here's your object:\n"
   console.log pretty object
   console.log ''
-  console.log "Save this to #{filename}?"
 
-  prompt.get ['answer'], (err, result) ->
+  schema =
+    properties:
+      answer:
+        required: yes
+        description: "Save this to #{filename}? (yes/no)"
+        message: 'Please type yes or no.'
+        pattern: /yes|no/
+        type: 'string'
+
+  prompt.get schema, (err, result) ->
+    if err
+      fatal 'Cancelled.'
+
     if result.answer is 'yes'
       writeJSON(filename, object)
       console.log "Saved to #{filename}.".green
@@ -45,7 +56,7 @@ repl = (fn) ->
   filename = fn
   console.log 'Entering Derulo interactive JSON builder.'.cyan
   console.log "Enter keys and values to be added to #{filename}."
-  console.log 'Type `end` at any time to finish.\n'
+  console.log 'Type `Ctrl-C` at any time to finish.\n'
   prompt.start()
   read_loop()
 
