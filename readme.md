@@ -4,6 +4,8 @@
 
 > Derulo is a tool for building and manipulating JSON files.
 
+![Derulo Logo](https://raw.githubusercontent.com/lavelle/derulo/master/image/trumpet.png)
+
 Hand editing JSON kinda sucks. You have to go around quoting stuff and if you forget a comma or a colon everything breaks. Derulo offers a fast way of creating and editing JSON files.
 
 ## Install
