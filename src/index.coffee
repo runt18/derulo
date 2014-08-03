@@ -12,7 +12,7 @@ fuzzy = require 'fuzzy'
 {fatal, pretty, normalise, read, readJSON, writeJSON, valueise} = require './util'
 repl = require './repl'
 
-version = '0.0.10'
+version = '0.0.11'
 
 # Usage instructions used to build the option parser.
 doc = read 'help.txt'
