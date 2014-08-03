@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/lavelle/derulo.svg?branch=master)](https://travis-ci.org/lavelle/derulo)
 
+![Dependency Status](https://david-dm.org/lavelle/derulo.png)
+
 > Derulo is a tool for building and manipulating JSON files.
 
 ![Derulo Logo](https://raw.githubusercontent.com/lavelle/derulo/master/image/trumpet.png)
