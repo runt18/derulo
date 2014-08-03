@@ -14,6 +14,10 @@ Get Node.js then run `npm i -g derulo`.
 
 ## Usage
 
+### Interactive
+
+`derulo package` will open up a REPL where you can add multiple key-value pairs to be written to a file.
+
 ### Adding and editing
 
 `derulo package name Jason` will add the pair `"name": "Jason"` to the file `package.json` in the current directory. If the file doesn't exist it will be created. If the key already exists, the value will be overwritten.
