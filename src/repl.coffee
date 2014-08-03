@@ -4,6 +4,7 @@ prompt = require 'prompt'
 
 object = {}
 
+# Prompt configuration. Requests a key and a value to be added to the object.
 schema =
   properties:
     key:
@@ -11,8 +12,10 @@ schema =
     value:
       required: yes
 
+# TODO: no globals.
 filename = null
 
+# Recursive function that implements the read loop.
 read_loop = ->
   prompt.get schema,  (err, result) ->
     {key, value} = result
@@ -23,6 +26,7 @@ read_loop = ->
       object[key] = valueise(value)
       read_loop()
 
+# Writes the file when the REPL has finished.
 finish = ->
   console.log "Here's your object:\n"
   console.log pretty object
@@ -36,6 +40,7 @@ finish = ->
     else
       fatal 'Cancelled.'
 
+# Starts the REPL.
 repl = (fn) ->
   filename = fn
   console.log 'Entering Derulo interactive JSON builder.'.cyan
