@@ -24,6 +24,8 @@ For full usage instructions, see the [help text](help.txt).
 
 `derulo <filename>` will open up a REPL where you can add multiple key-value pairs to be written to the file.
 
+The REPL is not fully finished yet, so use with caution.
+
 ### Adding and editing
 
 `derulo package name Jason` will add the pair `"name": "Jason"` to the file `package.json` in the current directory. If the file doesn't exist it will be created. If the key already exists, the value will be overwritten.

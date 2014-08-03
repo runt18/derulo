@@ -44,6 +44,8 @@ finish = ->
 repl = (fn) ->
   filename = fn
   console.log 'Entering Derulo interactive JSON builder.'.cyan
+  console.log "Enter keys and values to be added to #{filename}."
+  console.log 'Type `end` at any time to finish.\n'
   prompt.start()
   read_loop()
 
