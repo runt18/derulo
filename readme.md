@@ -1,7 +1,7 @@
 # JSON Derulo
 
 [![Build Status](https://travis-ci.org/lavelle/derulo.svg?branch=master)](https://travis-ci.org/lavelle/derulo)
-
+[![NPM version](https://badge.fury.io/js/derulo.svg)](http://badge.fury.io/js/derulo)
 ![Dependency Status](https://david-dm.org/lavelle/derulo.png)
 
 > Derulo is a tool for building and manipulating JSON files.
@@ -26,7 +26,7 @@ For full usage instructions, see the [help text](help.txt).
 
 ### Interactive
 
-`derulo <filename>` will open up a REPL where you can add multiple key-value pairs to be written to the file.
+`derulo <filename>` will open up a REPL where you can add multiple key-value pairs to be written to the file. To quit the REPL, and either save or discard the object you're build, press Ctrl+C at any time. Ctrl+D will quit the whole program with no prompt, so be careful!
 
 The REPL is not fully finished yet, so use with caution.
 
