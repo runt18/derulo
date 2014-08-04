@@ -20,6 +20,10 @@ Get Node.js then run `npm i -g derulo`.
 
 For full usage instructions, see the [help text](help.txt).
 
+### TL;DR
+
+![Derulo video](http://fat.gfycat.com/AdmiredAngelicAmericanlobster.gif)
+
 ### Interactive
 
 `derulo <filename>` will open up a REPL where you can add multiple key-value pairs to be written to the file.
