@@ -1,5 +1,7 @@
 # JSON Derulo [![Build Status](https://travis-ci.org/lavelle/derulo.svg?branch=master)](https://travis-ci.org/lavelle/derulo) [![NPM version](https://badge.fury.io/js/derulo.svg)](http://badge.fury.io/js/derulo) ![Dependency Status](https://david-dm.org/lavelle/derulo.png)
 
+Supported by Mashape [![Mashape logo](https://s3.amazonaws.com/mashape-production-assets/images/mashape-logo.png)](https://www.mashape.com/)
+
 > Derulo is a tool for building and manipulating JSON files.
 
 ![Derulo Logo](https://raw.githubusercontent.com/lavelle/derulo/master/image/trumpet.png)
