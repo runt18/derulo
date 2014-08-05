@@ -1,20 +1,20 @@
-# JSON Derulo
-
-[![Build Status](https://travis-ci.org/lavelle/derulo.svg?branch=master)](https://travis-ci.org/lavelle/derulo)
-[![NPM version](https://badge.fury.io/js/derulo.svg)](http://badge.fury.io/js/derulo)
-![Dependency Status](https://david-dm.org/lavelle/derulo.png)
+# JSON Derulo [![Build Status](https://travis-ci.org/lavelle/derulo.svg?branch=master)](https://travis-ci.org/lavelle/derulo) [![NPM version](https://badge.fury.io/js/derulo.svg)](http://badge.fury.io/js/derulo) ![Dependency Status](https://david-dm.org/lavelle/derulo.png)
 
 > Derulo is a tool for building and manipulating JSON files.
 
 ![Derulo Logo](https://raw.githubusercontent.com/lavelle/derulo/master/image/trumpet.png)
 
-# Why
+# Motivation
 
 Hand editing JSON kinda sucks. You have to go around quoting stuff and if you forget a comma or a colon everything breaks. Derulo offers a fast way of creating and editing JSON files.
 
-## Install
+## Installation
 
-Get Node.js then run `npm i -g derulo`.
+Get Node.js then run
+
+```bash
+$ npm install -g derulo
+```
 
 ## Usage examples
 
