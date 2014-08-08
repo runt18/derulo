@@ -5,9 +5,11 @@ Usage:
   derulo -d [-y] <filename> <key>...
   derulo -h | --help
   derulo -v | --version
+  derulo -w | --wiggle
 
 Options:
   -h --help      Show this screen.
   -v --version   Show version.
+  -w --wiggle    ♫ Jason Derulo ♫
   -d --delete    Delete keys instead of adding them.
   -y --yaml      Operate on YAML files instead of JSON.
