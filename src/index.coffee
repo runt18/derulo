@@ -14,7 +14,7 @@ open = require 'open'
 {fatal, pretty, normalise, read, readJSON, writeJSON, valueise} = require './util'
 repl = require './repl'
 
-version = '0.0.13'
+version = '0.0.14'
 
 console.log
 
